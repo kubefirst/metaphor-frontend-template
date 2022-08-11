@@ -1,9 +1,9 @@
 import axios from "axios"
 
 export const metaphorJsApi = axios.create({
-    baseURL: ""
+    baseURL: "",
 })
 
 export const metaphorGoApi = axios.create({
-    baseURL: ""
+    baseURL: "",
 })

@@ -38,21 +38,23 @@
     padding: 10px;
 }
 
-#items .app-item-health-status {
+#items .app-item-health .app-item-health-status {
+    font-weight: normal;
+    text-align: left;
     padding-top: 0.6rem;
 }
 
-#items .app-item-health-status .health-ok {
-    height: 20px;
-    width: 20px;
+#items .health-ok {
+    height: 10px;
+    width: 10px;
     background-color: #0EC9AE;
     border-radius: 50%;
     display: inline-block;
 }
 
-#items .app-item-health-status .health-not-ok {
-    height: 20px;
-    width: 20px;
+#items .health-not-ok {
+    height: 10px;
+    width: 10px;
     background-color: #EC0000;
     border-radius: 50%;
     display: inline-block;

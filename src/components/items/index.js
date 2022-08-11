@@ -33,7 +33,7 @@ const Items = () => {
                 console.log(data)
             } catch (e) {
                 setMetaphorJsHealth(false)
-                console.log(err)
+                console.log(e)
             }
         }
         const getGoApiHealthz = async () => {
@@ -126,16 +126,16 @@ const Items = () => {
 
                 <div className="app-item">
                     <div className="app-item-health">
+                        <div className={metaphorJsHealth ? "health-ok" : "health-not-ok"}></div>&nbsp;
                         Metaphor JS API
-                        {metaphorGoHealth}
-                    </div>
-                    <div className="app-item-health-status">
-                        Metaphor JS: <span className={metaphorJsHealth ? "health-ok" : "health-not-ok"}></span>
+                        <div className="app-item-health-status">
+                            status: {metaphorJsHealth ? "running" : "not running"}
+                        </div>
                     </div>
                 </div>
                 <div className="app-item">
                     <div className="app-item-name">
-                        Metaphor JS API
+                        Metaphor (JS API)
                     </div>
                     <div className="app-item-value">
                         App name: {jsAppName}
@@ -153,7 +153,7 @@ const Items = () => {
 
                 <div className="app-item">
                     <div className="app-item-name">
-                        Kubernetes
+                        Kubernetes (JS API)
                     </div>
                     <div className="app-item-value">
                         Config One: {kubernetesConfigOne}
@@ -164,7 +164,7 @@ const Items = () => {
                 </div>
                 <div className="app-item">
                     <div className="app-item-name">
-                        Vault
+                        Vault (JS API)
                     </div>
                     <div className="app-item-value">
                         Secret One: {vaultSecretOne}
@@ -178,17 +178,17 @@ const Items = () => {
             <div id="items-right">
                 <div className="app-item">
                     <div className="app-item-health">
+                        <div className={metaphorGoHealth ? "health-ok" : "health-not-ok"}></div>&nbsp;
                         Metaphor Go API
-                        {metaphorGoHealth}
-                    </div>
-                    <div className="app-item-health-status">
-                        Metaphor Go: <span className={metaphorGoHealth ? "health-ok" : "health-not-ok"}></span>
+                        <div className="app-item-health-status">
+                            status: {metaphorGoHealth ? "running" : "not running"}
+                        </div>
                     </div>
                 </div>
 
                 <div className="app-item">
                     <div className="app-item-name">
-                        Metaphor Go API
+                        Metaphor (Go API)
                     </div>
                     <div className="app-item-value">
                         App name: {goAppName}
@@ -205,7 +205,7 @@ const Items = () => {
                 </div>
                 <div className="app-item">
                     <div className="app-item-name">
-                        Kubernetes
+                        Kubernetes (Go API)
                     </div>
                     <div className="app-item-value">
                         Config One: {kubernetesConfigOne}
@@ -216,7 +216,7 @@ const Items = () => {
                 </div>
                 <div className="app-item">
                     <div className="app-item-name">
-                        Vault
+                        Vault (Go API)
                     </div>
                     <div className="app-item-value">
                         Secret One: {vaultSecretOne}
