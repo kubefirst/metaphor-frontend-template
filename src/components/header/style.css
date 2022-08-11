@@ -1,0 +1,15 @@
+#header {
+    display: grid;
+    justify-content: center;
+    grid-column: 1;
+    grid-row: 1;
+    background-color: #ffffff;
+    height: 100px;
+    text-align: center;
+}
+
+#kubefirst-logo {
+    margin-top: 1rem;
+    width: 18rem;
+    object-fit: contain;
+}
