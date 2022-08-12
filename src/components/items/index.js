@@ -100,6 +100,8 @@ const Items = () => {
                 console.log(e)
             }
         }
+        console.log(process.env.METAPHOR_JS_API_BASE_URL)
+        console.log(process.env.METAPHOR_GO_API_BASE_URL)
 
         // Metaphor JS
         getJsApiHealthz()
@@ -126,8 +128,8 @@ const Items = () => {
 
                 <div className="app-item">
                     <div className="app-item-health">
-                        <div className={metaphorJsHealth ? "health-ok" : "health-not-ok"}></div>&nbsp;
-                        Metaphor JS API
+                        <span className={metaphorJsHealth ? "health-ok" : "health-not-ok"} type="up"></span>&nbsp;
+                        <span className="api-name">Metaphor JS API</span>
                         <div className="app-item-health-status">
                             status: {metaphorJsHealth ? "running" : "not running"}
                         </div>
