@@ -2,7 +2,7 @@
   "name": "kubefirst-frontend",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel",
+    "start": "./env.sh && cp env-config.js ./src/ && parcel ./src/index.html",
     "build": "parcel build"
   },
   "dependencies": {

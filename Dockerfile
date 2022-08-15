@@ -15,15 +15,17 @@ EXPOSE $PORT
 
 RUN yarn build
 
+COPY env.sh .env ./
+
 # production
 FROM nginx:1.23-alpine AS production
+
+RUN apk add -u bash
 
 WORKDIR /usr/share/nginx/html
 
 # remove default nginx static assets
 RUN rm -rf ./*
-
-#ENV DOTENV_CONFIG_PATH="/vault/secrets/.env"
 
 EXPOSE 80
 
@@ -33,6 +35,7 @@ RUN set -x ; \
 
 USER www-data
 
-COPY --from=build --chown=www-data:www-data /opt/app/dist .
+COPY --from=build --chown=www-data:www-data /opt/app/dist /opt/app/env.sh /opt/app/.env ./
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD ["/bin/sh", "-c", "/usr/share/nginx/html/env.sh && nginx -g \"daemon off;\""]
+
