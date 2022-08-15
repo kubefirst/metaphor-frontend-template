@@ -100,8 +100,8 @@ const Items = () => {
                 console.log(e)
             }
         }
-        console.log(process.env.METAPHOR_JS_API_BASE_URL)
-        console.log(process.env.METAPHOR_GO_API_BASE_URL)
+        console.log(window.__env__.METAPHOR_JS_API_BASE_URL)
+        console.log(window.__env__.METAPHOR_GO_API_BASE_URL)
 
         // Metaphor JS
         getJsApiHealthz()
