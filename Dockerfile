@@ -38,4 +38,3 @@ USER www-data
 COPY --from=build --chown=www-data:www-data /opt/app/dist /opt/app/env.sh /opt/app/.env ./
 
 CMD ["/bin/sh", "-c", "/usr/share/nginx/html/env.sh && nginx -g \"daemon off;\""]
-
