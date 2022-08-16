@@ -1,5 +1,5 @@
 #main {
     display: grid;
-    grid-template-columns: 1fr 700px 1fr;
+    grid-template-columns: 1fr 900px 1fr;
     grid-template-rows: 1fr;
 }
