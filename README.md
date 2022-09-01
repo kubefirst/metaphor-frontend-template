@@ -1,4 +1,6 @@
-![](https://user-images.githubusercontent.com/188671/187987662-0bd550f7-c457-452b-8022-a0b9d390d9c7.png)
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/188671/187987662-0bd550f7-c457-452b-8022-a0b9d390d9c7.png"/>
+</p>
 
 `metaphor-frontend` is an example application which serves as a demonstration space for how your applications hook into your infrastructure and tooling.
 
