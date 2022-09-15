@@ -36,3 +36,11 @@ The deployed instances of `metaphor-frontend` are available at:
 `argocd` is the gitops tool responsible for auto syncing the desired state in each environment. It follows a pull model so our CI/CD ecosystem doesn't need to know how to connect to our kubernetes clusters.
 
 We have `metaphor-frontend` set up to run its automation by invoking argo-workflows. Those submitted workflows can be found in the .argo directory of this repository.
+
+### Local development
+
+For local development, use the container:
+```
+docker build -t react-app --platform=linux/amd64 .
+docker run --name ok --platform=linux/amd64 -p 8000:80 react-app
+```
