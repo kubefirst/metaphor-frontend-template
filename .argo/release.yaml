@@ -22,6 +22,8 @@ spec:
       value: "components/{{workflow.parameters.environment}}/{{workflow.parameters.appName}}/Chart.yaml"
     - name: gitRepoUrl
       value: "{{workflow.parameters.gitRepoUrl}}"
+    - name: gitRepoPath
+      value: "{{workflow.parameters.gitRepoPath}}"      
     - name: shortSha
       value: "{{workflow.parameters.shortSha}}"
 
