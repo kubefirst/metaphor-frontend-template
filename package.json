@@ -2,7 +2,7 @@
   "name": "kubefirst-frontend",
   "source": "src/index.html",
   "scripts": {
-    "dev": "next dev",
+    "dev": "rm -rf .next && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint && eslint './**/*.{js,jsx,ts,tsx}'",
