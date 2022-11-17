@@ -22,8 +22,8 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      metaphorNodeJSApiUrl: METAPHOR_JS_API_BASE_URL,
-      metaphorNodeGoApiUrl: METAPHOR_GO_API_BASE_URL,
+      metaphorNodeJSApiUrl: `https://${METAPHOR_JS_API_BASE_URL}`,
+      metaphorNodeGoApiUrl: `https://${METAPHOR_GO_API_BASE_URL}`,
     },
   };
 }
