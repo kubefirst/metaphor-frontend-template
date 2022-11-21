@@ -1,14 +1,11 @@
+import { AppProps } from 'next/app';
 import React from 'react';
 
 import Container from '../components/container';
 
 export default function Home({
-  metaphorNodeJSApiUrl,
-  metaphorNodeGoApiUrl,
-}: {
-  metaphorNodeJSApiUrl: string;
-  metaphorNodeGoApiUrl: string;
-}) {
+  pageProps: { metaphorNodeJSApiUrl, metaphorNodeGoApiUrl },
+}: AppProps) {
   return (
     <Container
       metaphorNodeJSApiUrl={metaphorNodeJSApiUrl}
@@ -22,8 +19,8 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      metaphorNodeJSApiUrl: `https://${METAPHOR_JS_API_BASE_URL}`,
-      metaphorNodeGoApiUrl: `https://${METAPHOR_GO_API_BASE_URL}`,
+      metaphorNodeJSApiUrl: METAPHOR_JS_API_BASE_URL,
+      metaphorNodeGoApiUrl: METAPHOR_GO_API_BASE_URL,
     },
   };
 }
