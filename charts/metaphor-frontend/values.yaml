@@ -68,7 +68,7 @@ tolerations: []
 affinity: {}
 
 metaphor:
-  host: metaphor-development.<AWS_HOSTED_ZONE_NAME>
+  host: https://metaphor-development.<AWS_HOSTED_ZONE_NAME>
 
 metaphorGo:
-  host: metaphor-go-development.<AWS_HOSTED_ZONE_NAME>
+  host: https://metaphor-go-development.<AWS_HOSTED_ZONE_NAME>
