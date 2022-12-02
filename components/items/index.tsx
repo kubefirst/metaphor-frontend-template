@@ -47,7 +47,7 @@ const Items = () => {
         <div className="app-item">
           <div className="app-item-name">Vault (JS API)</div>
           <div className="app-item-value">Secret One: {vaultData.secret_one}</div>
-          <div className="app-item-value">Secret Two: {vaultData.secret_one}</div>
+          <div className="app-item-value">Secret Two: {vaultData.secret_two}</div>
         </div>
       </div>
       <div id="items-right">
@@ -75,7 +75,7 @@ const Items = () => {
         <div className="app-item">
           <div className="app-item-name">Vault (Go API)</div>
           <div className="app-item-value">Secret One: {vaultData.secret_one}</div>
-          <div className="app-item-value">Secret Two: {vaultData.secret_one}</div>
+          <div className="app-item-value">Secret Two: {vaultData.secret_two}</div>
         </div>
       </div>
     </div>
