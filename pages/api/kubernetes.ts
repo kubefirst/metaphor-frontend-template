@@ -1,14 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Configs = {
-  [key: string]: string;
+  config_one: string;
+  config_two: string;
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Configs>) {
-  const { METAPHOR_JS_API_BASE_URL = '', METAPHOR_GO_API_BASE_URL = '' } = process.env;
+  const { CONFIG_ONE = '', CONFIG_TWO = '' } = process.env;
 
   res.status(200).json({
-    METAPHOR_JS_API_BASE_URL,
-    METAPHOR_GO_API_BASE_URL,
+    config_one: CONFIG_ONE,
+    config_two: CONFIG_TWO,
   });
 }

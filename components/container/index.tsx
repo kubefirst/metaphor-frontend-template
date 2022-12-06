@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect } from 'react';
 
 import Header from '../header';
 import Main from '../main';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
 
 import {
   getHealthz,
@@ -12,17 +12,18 @@ import {
   getKubernetesData,
   getVaultData,
 } from 'redux/actions/metaphor.action';
+import {
+  selectIsLocal,
+  selectMetaphorGoUrl,
+  selectMetaphorNodeJSUrl,
+} from 'redux/selectors/metaphor.selector';
 
-export interface ContainerProps {
-  metaphorNodeJSApiUrl: string;
-  metaphorNodeGoApiUrl: string;
-}
-
-const Container: FunctionComponent<ContainerProps> = ({
-  metaphorNodeJSApiUrl,
-  metaphorNodeGoApiUrl,
-}) => {
+const Container: FunctionComponent = () => {
   const dispatch = useAppDispatch();
+
+  const isLocal = useAppSelector(selectIsLocal());
+  const metaphorNodeGoApiUrl = useAppSelector(selectMetaphorGoUrl());
+  const metaphorNodeJSApiUrl = useAppSelector(selectMetaphorNodeJSUrl());
 
   useEffect(() => {
     const getMetaphorGoData = async () => {
@@ -37,9 +38,14 @@ const Container: FunctionComponent<ContainerProps> = ({
       await dispatch(getVaultData(metaphorNodeJSApiUrl)).unwrap();
     };
 
-    getMetaphorGoData();
-    getMetaphorNodeJSData();
-  }, [dispatch, metaphorNodeGoApiUrl, metaphorNodeJSApiUrl]);
+    if (metaphorNodeGoApiUrl && !isLocal) {
+      getMetaphorGoData();
+    }
+
+    if (metaphorNodeJSApiUrl) {
+      getMetaphorNodeJSData();
+    }
+  }, [dispatch, isLocal, metaphorNodeGoApiUrl, metaphorNodeJSApiUrl]);
 
   return (
     <div id="container">

@@ -11,6 +11,10 @@ import {
 } from '../actions/metaphor.action';
 
 export interface MetaphorState {
+  isLocal: boolean;
+  metaphorNodeJSUrl?: string;
+  metaphorGoUrl?: string;
+
   metaphorGo?: any;
   metaphorGoStatus: boolean;
   metaphorNode: any;
@@ -20,6 +24,10 @@ export interface MetaphorState {
 }
 
 export const initialState: MetaphorState = {
+  isLocal: false,
+  metaphorNodeJSUrl: undefined,
+  metaphorGoUrl: undefined,
+
   metaphorGo: undefined,
   metaphorGoStatus: false,
   metaphorNode: undefined,
@@ -31,7 +39,14 @@ export const initialState: MetaphorState = {
 const metaphorSlice = createSlice({
   name: 'metaphor',
   initialState,
-  reducers: {},
+  reducers: {
+    setConfigValues(state, payload) {
+      const { isLocal, metaphorNodeJSUrl, metaphorGoUrl } = payload.payload;
+      state.isLocal = isLocal;
+      state.metaphorNodeJSUrl = metaphorNodeJSUrl;
+      state.metaphorGoUrl = metaphorGoUrl;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(getHealthz.rejected, (state) => {
       state.metaphorGoStatus = false;
@@ -59,5 +74,7 @@ const metaphorSlice = createSlice({
     });
   },
 });
+
+export const { setConfigValues } = metaphorSlice.actions;
 
 export default metaphorSlice.reducer;
