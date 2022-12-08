@@ -12,7 +12,7 @@ export default function Home({
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(setConfigValues({ isLocal, metaphorNodeJSUrl, metaphorGoUrl }));
+    dispatch(setConfigValues({ isLocal: isLocal === 'true', metaphorNodeJSUrl, metaphorGoUrl }));
   }, [dispatch, isLocal, metaphorGoUrl, metaphorNodeJSUrl]);
 
   return <Container />;

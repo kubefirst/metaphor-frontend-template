@@ -75,3 +75,5 @@ metaphorGo:
 vaultMountPoint: kubefirst
 vaultSecretPath: development/metaphor
 
+isLocal: false
+
