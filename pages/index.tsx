@@ -1,26 +1,35 @@
 import { AppProps } from 'next/app';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Container from '../components/container';
+import { useAppDispatch } from '../redux/store';
+
+import { setConfigValues } from 'redux/slices/metaphor.slice';
 
 export default function Home({
-  pageProps: { metaphorNodeJSApiUrl, metaphorNodeGoApiUrl },
+  pageProps: { metaphorNodeJSUrl, metaphorGoUrl, isLocal },
 }: AppProps) {
-  return (
-    <Container
-      metaphorNodeJSApiUrl={metaphorNodeJSApiUrl}
-      metaphorNodeGoApiUrl={metaphorNodeGoApiUrl}
-    />
-  );
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setConfigValues({ isLocal: isLocal === 'true', metaphorNodeJSUrl, metaphorGoUrl }));
+  }, [dispatch, isLocal, metaphorGoUrl, metaphorNodeJSUrl]);
+
+  return <Container />;
 }
 
 export async function getServerSideProps() {
-  const { METAPHOR_JS_API_BASE_URL = '', METAPHOR_GO_API_BASE_URL = '' } = process.env;
+  const {
+    METAPHOR_JS_API_BASE_URL = '',
+    METAPHOR_GO_API_BASE_URL = '',
+    IS_LOCAL = false,
+  } = process.env;
 
   return {
     props: {
-      metaphorNodeJSApiUrl: METAPHOR_JS_API_BASE_URL,
-      metaphorNodeGoApiUrl: METAPHOR_GO_API_BASE_URL,
+      metaphorNodeJSUrl: METAPHOR_JS_API_BASE_URL,
+      metaphorGoUrl: METAPHOR_GO_API_BASE_URL,
+      isLocal: IS_LOCAL,
     },
   };
 }

@@ -22,3 +22,11 @@ export const selectKubernetesData = () =>
 
 export const selectVaultData = () =>
   createSelector(metaphorSelector, ({ vaultSecrets }) => vaultSecrets || {});
+
+export const selectIsLocal = () => createSelector(metaphorSelector, ({ isLocal }) => !!isLocal);
+
+export const selectMetaphorNodeJSUrl = () =>
+  createSelector(metaphorSelector, ({ metaphorNodeJSUrl }) => metaphorNodeJSUrl || '');
+
+export const selectMetaphorGoUrl = () =>
+  createSelector(metaphorSelector, ({ metaphorGoUrl }) => metaphorGoUrl || '');
