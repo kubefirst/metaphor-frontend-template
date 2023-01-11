@@ -2,8 +2,6 @@ name: GitHub Actions - Build Branch
 env:
   ARGO_NAMESPACE: argo
   ARGO_VERSION: v3.1.11
-  GITREPO_URL: ssh://git@<GITHUB_HOST>/<GITHUB_OWNER>/metaphor-frontend.git
-  CI_PROJECT_NAME: metaphor-frontend
 
 on:
  push:
@@ -33,16 +31,16 @@ jobs:
         uses: actions/checkout@v3
       - run: echo ${GITHUB_REPOSITORY#*/}
       - run: echo ${GITHUB_SERVER_URL:8}
-      - run: echo ${GITREPO_URL}      
+      - run: echo ssh://git@github.com/${GITHUB_REPOSITORY_OWNER_PART}/${GITHUB_REPOSITORY_NAME_PART}.git
       - name: build
         run: |
           argo version --short   
           argo submit .argo/npm-run.yaml \
-          --generate-name="${CI_PROJECT_NAME}-build-${GITHUB_SHA:7}" \
+          --generate-name="${GITHUB_REPOSITORY_NAME_PART}-build-${GITHUB_SHA:7}" \
           --serviceaccount=argo \
           -p appName="${GITHUB_REPOSITORY#*/}" \
           -p branch="${GITHUB_REF_NAME}" \
-          -p gitRepoUrl="${GITREPO_URL}" \
+          -p gitRepoUrl="ssh://git@github.com/${GITHUB_REPOSITORY_OWNER_PART}/${GITHUB_REPOSITORY_NAME_PART}.git" \
           -p npmScriptName="build" \
           --wait --log -v         
       - run: echo "🍏 This job's status is ${{ job.status }}."    

@@ -8,9 +8,9 @@
 
 The deployed instances of `metaphor-frontend` are available at:
 
-- https://metaphor-frontend-development.<AWS_HOSTED_ZONE_NAME>
-- https://metaphor-frontend-staging.<AWS_HOSTED_ZONE_NAME>
-- https://metaphor-frontend-production.<AWS_HOSTED_ZONE_NAME>
+- <METAPHOR_FRONT_DEVELOPMENT_INGRESS_URL>
+- <METAPHOR_FRONT_STAGING_INGRESS_URL>
+- <METAPHOR_FRONT_PRODUCTION_INGRESS_URL>
 
 `metaphor-frontend` currently demonstrates the following capabilities:
 

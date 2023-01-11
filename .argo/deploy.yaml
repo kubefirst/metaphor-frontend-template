@@ -8,7 +8,7 @@ spec:
       value: /src/{{workflow.parameters.appName}}
     - name: awsRegion
       value: "{{workflow.parameters.awsRegion}}"
-      default: <AWS_DEFAULT_REGION>
+      default: <REGION>
     - name: chartDir
       value: charts/{{workflow.parameters.appName}}
     - name: ciCommitSha

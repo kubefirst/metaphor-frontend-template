@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: <AWS_ACCOUNT_ID>.dkr.ecr.<AWS_DEFAULT_REGION>.amazonaws.com/metaphor-frontend-<CLUSTER_NAME>
+  repository: <CONTAINER_REGISTRY>
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -41,13 +41,13 @@ ingress:
     # Change to "letsencrypt-staging" while testing adjustments, change to "letsencrypt-prod" after confirming LE certificate was issued
     # cert-manager.io/cluster-issuer: "letsencrypt-prod"
   hosts:
-    - host: metaphor-frontend-development.<AWS_HOSTED_ZONE_NAME>
+    - host: example.com
       paths:
         - /
   tls:
-   - secretName: metaphor-frontend-tls
+   - secretName: example-tls
      hosts:
-       - metaphor-frontend-development.<AWS_HOSTED_ZONE_NAME>
+       - example.com
 
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -67,13 +67,8 @@ tolerations: []
 
 affinity: {}
 
-metaphor:
-  host: https://metaphor-development.<AWS_HOSTED_ZONE_NAME>
-metaphorGo:
-  host: https://metaphor-go-development.<AWS_HOSTED_ZONE_NAME>
-
 vaultMountPoint: kubefirst
 vaultSecretPath: development/metaphor
 
-isLocal: false
+isLocal: true
 
