@@ -27,11 +27,22 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+          - configMapRef:
+              name: {{ template "metaphor.fullname" . }}
+          - secretRef:
+              name: {{ template "metaphor.fullname" . }}
           env:
           - name: METAPHOR_JS_API_BASE_URL
             value: "{{ .Values.metaphor.host }}"
           - name: METAPHOR_GO_API_BASE_URL
             value: "{{ .Values.metaphorGo.host }}"
+          - name: CHART_VERSION
+            value: "{{ .Chart.Version }}"
+          - name: DOCKER_TAG
+            value: "{{ .Chart.AppVersion }}"
+          - name: IS_LOCAL
+            value: "{{ .Values.isLocal }}"
           ports:
             - name: http
               containerPort: 80

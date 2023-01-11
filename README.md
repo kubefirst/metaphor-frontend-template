@@ -36,3 +36,12 @@ The deployed instances of `metaphor-frontend` are available at:
 `argocd` is the gitops tool responsible for auto syncing the desired state in each environment. It follows a pull model so our CI/CD ecosystem doesn't need to know how to connect to our kubernetes clusters.
 
 We have `metaphor-frontend` set up to run its automation by invoking argo-workflows. Those submitted workflows can be found in the .argo directory of this repository.
+
+# Setup Instructions
+
+- You will need `node` and `yarn` installed globally on your machine.
+- Make sure you are using **NodeJS** >= v16.15.1
+- Install dependencies `yarn install`
+- Start the server `yarn dev`
+- Go to `localhost:3000`
+- Enjoy 🥳🎉
