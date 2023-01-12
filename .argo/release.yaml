@@ -9,7 +9,7 @@ spec:
     - name: appName
       value: "{{workflow.parameters.appName}}"
     - name: awsRegion
-      value: <REGION>
+      value: <CLOUD_REGION>
     - name: branch
       value: "{{workflow.parameters.branch}}"
     - name: chartDir
