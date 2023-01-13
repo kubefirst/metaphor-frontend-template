@@ -6,7 +6,7 @@
 
 `metaphor-frontend` is deployed to all of your environments just like your other applications will be. This means that when you make changes to your ci/cd, you can test it out using an application that works just like your applications do.
 
-The cloud (GitHub/GitLab) deployed instances of `metaphor-frontend` are available at:
+The cloud ([GitHub](https://docs.kubefirst.com/kubefirst/github/install.html)/[GitLab](https://docs.kubefirst.com/kubefirst/gitlab/install.html)) deployed instances of `metaphor-frontend` are available at:
 
 | environment | url                                                            |
 |-------------|----------------------------------------------------------------|
@@ -14,7 +14,7 @@ The cloud (GitHub/GitLab) deployed instances of `metaphor-frontend` are availabl
 | staging     | `https://metaphor-frontend-staging.<AWS_HOSTED_ZONE_NAME>`     |
 | production  | `https://metaphor-frontend-production.<AWS_HOSTED_ZONE_NAME>`  |
 
-The local deployed instances of `metaphor-frontend` is available at:
+The [local](https://docs.kubefirst.com/kubefirst/local/install.html) deployed instances of `metaphor-frontend` is available at:
 
 | environment | url                                                 |
 |-------------|-----------------------------------------------------|
