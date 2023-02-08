@@ -32,7 +32,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
 ingress:
   enabled: true
@@ -74,6 +74,7 @@ metaphorGo:
 
 vaultMountPoint: kubefirst
 vaultSecretPath: development/metaphor
+clusterSecretStoreName: vault-kv-secret
 
 isLocal: false
 
