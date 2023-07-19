@@ -1,3 +1,5 @@
+> ⚠️ The kubefirst exploration applications metaphor has been merged into one version, and moved inside the [gitops-teplate repository](https://github.com/kubefirst/gitops-template/tree/main/metaphor).
+
 <p align="center">
     <img src="https://user-images.githubusercontent.com/188671/187987662-0bd550f7-c457-452b-8022-a0b9d390d9c7.png"/>
 </p>
